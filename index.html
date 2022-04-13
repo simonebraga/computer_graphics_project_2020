@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Anatomy Visualizer</title>
+  </head>
+  <body onload="init();">
+    <table cellspacing=0>
+      <tr>
+        <td rowspan="2">
+          <canvas id="canvas-surface" width="800" height="600">
+            You browser does not support HTML5
+          </canvas>
+          <div id="gui-popup"
+          style="position: absolute; z-index: 1; left: 30px; top: 420px; width:500px; height:150px; background-color: white; border-style: dashed; border-color: black; opacity: 0.7; padding: 5px 10px 5px 10px; overflow:auto">
+            <p><div id="gui-title" style="font-family: Arial, Helvetica, sans-serif;"></div></p>
+            <div id="gui-content" style="font-family: Arial, Helvetica, sans-serif;"></div>
+          </div>
+        </td>
+        <td style="vertical-align: top; background-color: lightgrey; font-family: Arial, Helvetica, sans-serif; padding: 10px;">
+          <p><h2>Anatomy Visualizer</h2></p>
+          <button style="width: 100%" onclick="page.updateView('none');">Reset view</button>
+          <p>Highlight bone:
+            <select autocomplete="off" id="highlight-selection" onchange=page.updateSelectedBone();>
+              <option value="none" selected>None</option>
+              <option value="skull">Skull</option>
+              <option value="spinal-cord">Spinal cord</option>
+              <option value="humerus">Humerus</option>
+              <option value="ribs">Ribs</option>
+              <option value="femur-bones">Femur bones</option>
+              <option value="jawbone">Jawbone</option>
+              <option value="clavicle">Clavicle</option>
+              <option value="shoulder-blade">Shoulder blade</option>
+              <option value="ulna">Ulna</option>
+              <option value="radius">Radius</option>
+              <option value="sternum">Sternum</option>
+              <option value="pelvis">Pelvis</option>
+              <option value="tibia">Tibia</option>
+              <option value="fibula">Fibula</option>
+            </select>
+          </p>
+          <hr style="color: lightgrey;">
+          <b>Translate</b> using W/S, A/D.<br/>
+          <b>Rotate</b> using Q/E, R/F, Z/X.<br/>
+          <b>Scale</b> using I/O.
+          <hr style="color: lightgrey;">
+          <p><b>Light mode</b>
+            <form autocomplete="off">
+              <input type="radio" name="light-mode" onclick=page.enableLightParameters(false); checked>Uniform<br/>
+              <input type="radio" name="light-mode" onclick=page.enableLightParameters(true);>Directional<br/>
+            </form>
+          </p>
+          <div id="light-direction-panel" style="visibility: hidden;">
+            <hr style="color: lightgrey;">
+            <p><b>Light settings</b></p>
+            Left <input autocomplete="off" type="range" id="horizontal-rotation" min="0" max="1" step="0.01" value="0.5"> Right <br/>
+            Down <input autocomplete="off" type="range" id="vertical-rotation" min="0" max="1" step="0.01" value="0.5"> Up
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: right; vertical-align: bottom; background-color: lightgrey; font-family: Arial, Helvetica, sans-serif; padding: 10px;">
+          <button onclick=page.resizeCanvas(false);>−</button>
+          <button onclick=page.resizeCanvas(true);>+</button>
+        </td>
+      </tr>
+    </table>
+
+    <script src="src/lib/bone-parameters.js"></script>
+    <script src="src/lib/page.js"></script>
+    <script src="src/lib/twgl-full.js"></script>
+    <script src="src/lib/user.js"></script>
+    <script src="src/lib/utils.js"></script>
+    <script src="src/lib/webgl-obj-loader.js"></script>
+    <script src="src/app.js"></script>
+  </body>
+</html>
