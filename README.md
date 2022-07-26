@@ -1,7 +1,6 @@
 # Computer Graphics (A.A. 2019-2020)
 
-The development of this project is part of the computer graphics course at the Polytechnic University of Milan.
-The exam is composed of a set of assignments and a project, aimed to prove the knowledge of the topics of the course.
+The development of this project is part of the computer graphics course at Politecnico di Milano. The exam is composed of a set of assignments and a project, aimed to prove the knowledge of the topics of the course.
 
 ### Assignments
 
